@@ -1,6 +1,5 @@
 import { initStore } from 'react-waterfall';
 import devtools from 'react-waterfall-redux-devtools-middleware';
-import storeActions from './store-actions';
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -9,7 +8,9 @@ const store = {
     count: 0
   },
   actions: {
-    ...storeActions
+    add: ({ count }, { n }) => ({
+      count: count + n
+    })
   }
 };
 
